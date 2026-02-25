@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- MENU IZQUIERDO -->
-        <Border Background="#2D3FE0">
+        <Border Background="#2375B1">
 
             <StackPanel>
 
@@ -29,7 +29,7 @@
 
                 <!-- BOTONES -->
                 <Button Content="🏠  Home" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
-                <Button Content="📋  Consultas" Height="45" Background="#1F2DB3" Foreground="White" BorderThickness="0"/>
+                <Button Content="📋  Consultas" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
                 <Button Content="🐾  Mascotas" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
                 <Button Content="👤  Dueños" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
                 <Button Content="💉  Vacunas" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
@@ -71,11 +71,13 @@
                              VerticalAlignment="Center"
                              Text="Buscar..." TextChanged="TextBox_TextChanged"/>
 
-                    <Ellipse Width="40"
-                             Height="40"
-                             Fill="Gray"
-                             HorizontalAlignment="Right"
-                             Margin="0,0,20,0"/>
+                    
+                    <Ellipse Width="40" Height="40" HorizontalAlignment="Right" Margin="0,0,20,0">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/vet.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
 
                 </Grid>
 
