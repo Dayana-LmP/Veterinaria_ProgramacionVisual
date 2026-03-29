@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using ProyectoVeterinaria.ViewModels;
+﻿using System;
+using System.Windows;
+using ProyectoVeterinaria.ViewModel;
 
 namespace ProyectoVeterinaria.Views
 {
@@ -8,12 +9,15 @@ namespace ProyectoVeterinaria.Views
         public LoginView()
         {
             InitializeComponent();
+        
             this.DataContext = new LoginViewModel();
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Application.Current.Shutdown();
         }
     }
 }
+
