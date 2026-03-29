@@ -59,6 +59,8 @@
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelCommand.cs" />
     <Compile Include="Views\Consultas.xaml.cs">
       <DependentUpon>Consultas.xaml</DependentUpon>
     </Compile>
