@@ -1,0 +1,142 @@
+﻿<Window x:Class="ProyectoVeterinaria.Views.RegistroView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:customcontrols="clr-namespace:ProyectoVeterinaria.CustomControls"
+        Title="Registro" Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Border CornerRadius="20" Background="White" ClipToBounds="True">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- IZQUIERDA (FORMULARIO) -->
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="60,0">
+
+                <TextBlock Text="Crear cuenta"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           Foreground="#0644A7"
+                           Margin="0,60,0,30"/>
+
+                <!-- Usuario -->
+                <TextBlock Text="Usuario" Foreground="Gray"/>
+                <TextBox Text="{Binding User.Username, UpdateSourceTrigger=PropertyChanged}"
+                         Height="35"
+                         BorderBrush="#9FCEEC"
+                         BorderThickness="0,0,0,2"
+                         Margin="0,5,0,10"/>
+
+                <!-- Nombre -->
+                <TextBlock Text="Nombre" Foreground="Gray"/>
+                <TextBox Text="{Binding User.Name, UpdateSourceTrigger=PropertyChanged}"
+                         Height="35"
+                         BorderBrush="#9FCEEC"
+                         BorderThickness="0,0,0,2"
+                         Margin="0,5,0,10"/>
+
+                <!-- Apellido -->
+                <TextBlock Text="Apellido" Foreground="Gray"/>
+                <TextBox Text="{Binding User.LastName, UpdateSourceTrigger=PropertyChanged}"
+                         Height="35"
+                         BorderBrush="#9FCEEC"
+                         BorderThickness="0,0,0,2"
+                         Margin="0,5,0,10"/>
+
+                <!-- Email -->
+                <TextBlock Text="Correo electrónico" Foreground="Gray"/>
+                <TextBox Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged}"
+                         Height="35"
+                         BorderBrush="#9FCEEC"
+                         BorderThickness="0,0,0,2"
+                         Margin="0,5,0,10"/>
+
+                <!-- Password -->
+                <TextBlock Text="Contraseña" Foreground="Gray"/>
+                <customcontrols:BindablePasswordBox
+                        Password="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="35"
+                        Margin="0,5,0,10"/>
+
+                <!-- Confirm Password -->
+                <TextBlock Text="Confirmar contraseña" Foreground="Gray"/>
+                <customcontrols:BindablePasswordBox
+                        Password="{Binding User.ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Height="35"
+                        Margin="0,5,0,10"/>
+
+                <!-- Error -->
+                <TextBlock Text="{Binding ErrorMessage}"
+                           Foreground="#D7596D"
+                           FontSize="12"
+                           Margin="0,10,0,0"
+                           TextWrapping="Wrap"/>
+
+                <!-- Botón -->
+                <Button Command="{Binding AddCommand}"
+                        Content="Registrar"
+                        Height="45"
+                        Margin="0,0,0,40"
+                        Background="#2375B1"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="Bold" Click="Button_Click_1">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Content="Cancelar"
+                        Click="btnClose_Click"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="Gray"
+                        Margin="0,10,0,0"/>
+
+            </StackPanel>
+
+            <!-- DERECHA (INFO VISUAL) -->
+            <Border Grid.Column="1" Background="#2375B1">
+                <StackPanel VerticalAlignment="Center" Margin="40">
+
+                    <TextBlock Text="Únete a nuestro sistema y gestiona la salud de tus mascotas de forma rápida y sencilla."
+                               Foreground="White"
+                               FontSize="20"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,30"/>
+
+                    <Ellipse Width="120" Height="120" HorizontalAlignment="Center">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Images/vet.png" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <TextBlock Text="Veterinaria Huella Soft"
+                               Foreground="#9FCEEC"
+                               FontStyle="Italic"
+                               HorizontalAlignment="Center"
+                               Margin="0,20,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- BOTÓN CERRAR -->
+            <Button Content="X"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Foreground="White"
+                    Margin="15"
+                    FontWeight="Bold"
+                    Click="btnClose_Click"/>
+        </Grid>
+    </Border>
+</Window>
