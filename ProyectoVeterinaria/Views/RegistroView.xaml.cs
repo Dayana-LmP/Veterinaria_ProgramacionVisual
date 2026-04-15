@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace ProyectoVeterinaria.Views
 {
-    /// <summary>
-    /// Lógica de interacción para RegistroView.xaml
-    /// </summary>
     public partial class RegistroView : Window
     {
         public RegistroView()
@@ -24,14 +21,16 @@ namespace ProyectoVeterinaria.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.WindowState = WindowState.Minimized;
         }
     }
 }
+

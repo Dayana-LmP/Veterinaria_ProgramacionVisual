@@ -4,37 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoVeterinaria.Views"
+        xmlns:conv="clr-namespace:ProyectoVeterinaria.Converters"
         mc:Ignorable="d"
-        Title="Consultas" Height="805" Width="800"
+        Title="Consultas" Height="600" Width="800"
         Background="#F4F7F9"
         FontFamily="Segoe UI">
+
+    <Window.Resources>
+        <conv:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+    </Window.Resources>
+
     <Grid>
-        <!-- COLUMNAS -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- MENU IZQUIERDO -->
         <Border Background="#2375B1">
-
             <StackPanel>
+                <TextBlock Text="Huella Soft" FontSize="22" FontWeight="Bold" Foreground="White" Margin="20,20,0,30"/>
 
-                <!-- LOGO -->
-                <TextBlock Text="Huella Soft"
-                           FontSize="22"
-                           FontWeight="Bold"
-                           Foreground="White"
-                           Margin="20,20,0,30"/>
-
-                <!-- BOTONES -->
-                <!--<Button Content="🏠  Home" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/> 
-                <Button Content="📋  Consultas" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
-                <Button Content="🐾  Mascotas" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
-                <Button Content="👤  Dueños" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
-                <Button Content="💉  Vacunas" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
-                <Button Content="💊  Medicamentos" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>
-                <Button Content="👥  Empleados" Height="45" Background="Transparent" Foreground="White" BorderThickness="0"/>-->
                 <Button Content="🏠  Home" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -56,7 +45,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--|Boton 2-->
+
                 <Button Content="📋  Consultas" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -78,7 +67,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--Boton 3-->
+
                 <Button Content="🐾  Mascotas" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -100,7 +89,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--Boton 4-->
+
                 <Button Content="👤  Dueños" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -122,7 +111,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--Boton 5-->
+
                 <Button Content="💉  Vacunas" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -144,7 +133,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--Boton 6-->
+
                 <Button Content="💊  Medicamentos" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -166,7 +155,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--Boton 7-->
+
                 <Button Content="👥  Empleados" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -189,11 +178,8 @@
                     </Button.Style>
                 </Button>
 
-
                 <StackPanel Margin="10,150,10,0">
-                    
-
-                    <Button Content="↪ Salir" Height="45" Foreground="White" BorderThickness="0">
+                    <Button Content="↪ Salir" Height="45" Foreground="White" BorderThickness="0" RenderTransformOrigin="0.502,0.195">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -214,130 +200,75 @@
                             </Style>
                         </Button.Style>
                     </Button>
-
                 </StackPanel>
-
             </StackPanel>
-
         </Border>
 
-
-        <!-- CONTENIDO DERECHO -->
         <Grid Grid.Column="1">
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- TOP BAR -->
-            <Border Background="White">
-
+            <Border Background="White" BorderBrush="#EEE" BorderThickness="0,0,0,1">
                 <Grid>
+                    <Grid Width="250" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center">
+                        <TextBox x:Name="txtBusqueda" 
+                                 Padding="5,2"
+                                 VerticalContentAlignment="Center"
+                                 Height="30" 
+                                 TextChanged="TextBox_TextChanged"/>
 
-                    <TextBox Width="250"
-                             Height="30"
-                             Margin="20,0,0,0"
-                             VerticalAlignment="Center"
-                             Text="Buscar" TextChanged="TextBox_TextChanged"/>
+                        <TextBlock Text="🔍 Buscar Paciente" 
+                                   Foreground="DarkGray"
+                                   IsHitTestVisible="False" 
+                                   Margin="8,0,0,0" 
+                                   VerticalAlignment="Center" 
+                                   Visibility="{Binding Text, ElementName=txtBusqueda, Converter={StaticResource StringToVisibilityConverter}}"/>
+                    </Grid>
 
-                    
                     <Ellipse Width="40" Height="40" HorizontalAlignment="Right" Margin="0,0,20,0">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Images/vet.png" Stretch="UniformToFill"/>
                         </Ellipse.Fill>
                     </Ellipse>
-
-
                 </Grid>
-
             </Border>
 
-
-            <!-- CONTENIDO -->
             <ScrollViewer Grid.Row="1">
-
                 <StackPanel Margin="40">
+                    <TextBlock Text="Consulta" FontSize="36" FontWeight="Bold" Margin="0,0,0,20"/>
 
-                    <!-- TITULO -->
-                    <TextBlock Text="Consulta"
-                               FontSize="36"
-                               FontWeight="Bold"
-                               Margin="0,0,0,20"/>
-
-
-                    <!-- FORM -->
-                    <Border Background="White"
-                            Padding="25"
-                            Width="500"
-                            CornerRadius="10"
-                            BorderBrush="#DDD"
-                            BorderThickness="1">
-
+                    <Border Background="White" Padding="25" Width="500" CornerRadius="10" BorderBrush="#DDD" BorderThickness="1">
                         <StackPanel>
-
                             <TextBlock Text="Nombre de la mascota"/>
-                            <TextBox Height="30" Margin="0,5,0,15"/>
+                            <TextBox x:Name="txtMascota" Height="30" Margin="0,5,0,15"/>
 
                             <TextBlock Text="Nombre del dueño"/>
-                            <TextBox Height="30" Margin="0,5,0,15"/>
+                            <TextBox x:Name="txtDueno" Height="30" Margin="0,5,0,15"/>
 
                             <TextBlock Text="Servicio a solicitar"/>
-                            <TextBox Height="30" Margin="0,5,0,15"/>
+                            <TextBox x:Name="txtServicio" Height="30" Margin="0,5,0,15"/>
 
                             <TextBlock Text="¿Requiere alguna vacuna?" Margin="0,10,0,10"/>
-
                             <StackPanel Orientation="Horizontal">
-
-                                <Button Content="SI"
-                                        Width="60"
-                                        Height="30"
-                                        Background="#C6D9F1"
-                                        Margin="0,0,10,0"/>
-
-                                <Button Content="NO"
-                                        Width="60"
-                                        Height="30"
-                                        Background="#F4CCCC"/>
-
+                                <Button Content="SI" Width="60" Height="30" Background="#C6D9F1" Margin="0,0,10,0" Click="BtnSi_Click"/>
+                                <Button Content="NO" Width="60" Height="30" Background="#F4CCCC" Click="BtnNo_Click"/>
                             </StackPanel>
-
                         </StackPanel>
-
                     </Border>
 
+                    <Button Content="GUARDAR" Width="120" Height="35" Background="#4A86E8" Foreground="White" Margin="0,20,0,20" Click="Guardar_Click"/>
 
-                    <!-- BOTON GUARDAR -->
-                    <Button Content="GUARDAR"
-                            Width="120"
-                            Height="35"
-                            Background="#4A86E8"
-                            Foreground="White"
-                            Margin="0,20,0,20"/>
-
-
-                    <!-- TABLA -->
-                    <DataGrid Height="200"
-                              AutoGenerateColumns="False">
-
+                    <DataGrid x:Name="dgConsultas" Height="200" AutoGenerateColumns="False" IsReadOnly="True" Background="White">
                         <DataGrid.Columns>
-
                             <DataGridTextColumn Header="Mascota" Binding="{Binding Mascota}" Width="*"/>
-
                             <DataGridTextColumn Header="Veterinario" Binding="{Binding Veterinario}" Width="*"/>
-
                             <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="*"/>
-
                         </DataGrid.Columns>
-
                     </DataGrid>
-
                 </StackPanel>
-
             </ScrollViewer>
-
         </Grid>
-
     </Grid>
-
 </Window>
