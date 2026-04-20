@@ -46,7 +46,7 @@
                     </Button.Style>
                 </Button>
 
-                <Button Content="📋  Consultas" Height="45" Foreground="White" BorderThickness="0">
+                <Button Content="🐾  Registrar Mascotas" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Transparent"/>
@@ -68,7 +68,7 @@
                     </Button.Style>
                 </Button>
 
-                <Button Content="🐾  Mascotas" Height="45" Foreground="White" BorderThickness="0">
+                <Button Content="👤  Registrar Dueños" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Transparent"/>
@@ -90,7 +90,7 @@
                     </Button.Style>
                 </Button>
 
-                <Button Content="👤  Dueños" Height="45" Foreground="White" BorderThickness="0">
+                <Button Content="📋  Crear Consulta" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Transparent"/>
@@ -112,27 +112,9 @@
                     </Button.Style>
                 </Button>
 
-                <Button Content="💉  Vacunas" Height="45" Foreground="White" BorderThickness="0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#0644A7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                
+
+                
 
                 <Button Content="💊  Medicamentos" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
@@ -156,7 +138,7 @@
                     </Button.Style>
                 </Button>
 
-                <Button Content="👥  Empleados" Height="45" Foreground="White" BorderThickness="0">
+                <Button Content="👥  Administrar Empleados" Height="45" Foreground="White" BorderThickness="0">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Transparent"/>
@@ -244,17 +226,28 @@
                             <TextBlock Text="Nombre de la mascota"/>
                             <TextBox x:Name="txtMascota" Height="30" Margin="0,5,0,15"/>
 
-                            <TextBlock Text="Nombre del dueño"/>
-                            <TextBox x:Name="txtDueno" Height="30" Margin="0,5,0,15"/>
+                            <TextBlock Text="Veterinario tratante"/>
+                            <TextBox x:Name="txtVet" Height="30" Margin="0,5,0,15"/>
 
-                            <TextBlock Text="Servicio a solicitar"/>
-                            <TextBox x:Name="txtServicio" Height="30" Margin="0,5,0,15"/>
+                            <TextBlock Text="Servicios a solicitar" Margin="0,0,0,5"/>
+                            <Border BorderBrush="#DDD" BorderThickness="1" CornerRadius="5" Padding="5" Background="#F9F9F9">
+                                <ListBox x:Name="lstServicios" Height="100" BorderThickness="0" Background="Transparent">
+                                    <ListBox.Resources>
+                                        <Style TargetType="ListBoxItem">
+                                            <Setter Property="Padding" Value="5,2"/>
+                                        </Style>
+                                    </ListBox.Resources>
 
-                            <TextBlock Text="¿Requiere alguna vacuna?" Margin="0,10,0,10"/>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="SI" Width="60" Height="30" Background="#C6D9F1" Margin="0,0,10,0" Click="BtnSi_Click"/>
-                                <Button Content="NO" Width="60" Height="30" Background="#F4CCCC" Click="BtnNo_Click"/>
-                            </StackPanel>
+                                    <CheckBox Content="Baño" Margin="0,2"/>
+                                    <CheckBox Content="Peluquería" Margin="0,2"/>
+                                    <CheckBox Content="Vacunación" Margin="0,2"/>
+                                    <CheckBox Content="Revisión" Margin="0,2"/>
+                                    <CheckBox Content="Urgencia" Margin="0,2"/>
+                                </ListBox>
+                            </Border>
+
+
+
                         </StackPanel>
                     </Border>
 
