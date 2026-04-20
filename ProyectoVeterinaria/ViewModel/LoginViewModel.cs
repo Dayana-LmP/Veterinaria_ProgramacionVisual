@@ -91,11 +91,15 @@ namespace ProyectoVeterinaria.ViewModel
 
             if (isValidUser)
             {
-               
-                System.Windows.MessageBox.Show("Inicio de sesión exitoso");
 
+
+                //Para abrir la ventana de Consultas
                 var consultasWindow = new ProyectoVeterinaria.Views.Consultas();
                 consultasWindow.Show();
+
+                /* Para abrir la de ManejoUsuarios
+                var ManejoUsuariosWindow = new ProyectoVeterinaria.Views.ManejoUsuariosView();
+                ManejoUsuariosWindow.Show(); */
 
                 foreach (Window item in Application.Current.Windows)
                 {
