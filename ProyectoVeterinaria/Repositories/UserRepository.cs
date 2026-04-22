@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
-using System.Windows; // Para el MessageBox
+using System.Windows; //Para el MessageBox
 
 namespace ProyectoVeterinaria.Repositories
 {
@@ -36,15 +36,17 @@ namespace ProyectoVeterinaria.Repositories
                 {
                     connection.Open();
                     command.Connection = connection;
-                    // NOTA: No incluimos la columna 'Id' porque es IDENTITY (automática)
-                    command.CommandText = @"INSERT INTO [User1] (Username, [Password], Name, LastName, Email) 
-                                            VALUES (@Username, @Password, @Name, @LastName, @Email)";
+                    //No incluimos la columna 'Id' porque es automaticamente generada por la base de datos
+
+                    command.CommandText = @"INSERT INTO [User1] (Username, [Password], Name, LastName, Email, Rol) 
+                        VALUES (@Username, @Password, @Name, @LastName, @Email, @Rol)";
 
                     command.Parameters.AddWithValue("@Username", userModel.Username);
                     command.Parameters.AddWithValue("@Password", userModel.Password);
                     command.Parameters.AddWithValue("@Name", userModel.Name);
                     command.Parameters.AddWithValue("@LastName", userModel.LastName);
                     command.Parameters.AddWithValue("@Email", userModel.Email);
+                    command.Parameters.AddWithValue("@Rol", userModel.Rol);
 
                     command.ExecuteNonQuery();
                 }
@@ -107,6 +109,7 @@ namespace ProyectoVeterinaria.Repositories
                             Name = reader["Name"].ToString(),
                             LastName = reader["LastName"].ToString(),
                             Email = reader["Email"].ToString(),
+                            Rol = reader["Rol"].ToString()
                         };
                     }
                 }

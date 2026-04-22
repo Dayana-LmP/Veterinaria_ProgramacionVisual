@@ -47,6 +47,16 @@
                         <TextBox Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged}"
                                  Height="35" Margin="0,5,0,10" VerticalContentAlignment="Center" Padding="5,0"/>
 
+                        <TextBlock Text="Rol" Foreground="Gray"/>
+                        <ComboBox SelectedValue="{Binding User.Rol, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedValuePath="Content"
+                                  Height="35" Margin="0,5,0,10" 
+                                  VerticalContentAlignment="Center">
+                            <ComboBoxItem Content="Recepcionista"/>
+                            <ComboBoxItem Content="Veterinario"/>
+                            <ComboBoxItem Content="Administrador"/>
+                        </ComboBox>
+
                         <TextBlock Text="Contraseña" Foreground="Gray"/>
                         <customcontrols:BindablePasswordBox
                             Password="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
