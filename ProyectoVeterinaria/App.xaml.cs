@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoVeterinaria.Views;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,10 +9,14 @@ using System.Windows;
 
 namespace ProyectoVeterinaria
 {
-    /// <summary>
-    /// Lógica de interacción para App.xaml
-    /// </summary>
+
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            var Home = new Home();
+            Home.Show();
+
+        }
     }
 }

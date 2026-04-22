@@ -1,27 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProyectoVeterinaria.Views
 {
-    /// <summary>
-    /// Lógica de interacción para Consultas.xaml
-    /// </summary>
     public partial class Consultas : Window
     {
+        List<Consulta> lista = new List<Consulta>();
+        string vacuna = "";
+
         public Consultas()
         {
             InitializeComponent();
+        }
+
+        private void BtnSi_Click(object sender, RoutedEventArgs e)
+        {
+            vacuna = "SI";
+        }
+
+        private void BtnNo_Click(object sender, RoutedEventArgs e)
+        {
+            vacuna = "NO";
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+        private void Guardar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtMascota.Text == "" || txtDueno.Text == "" || txtServicio.Text == "" || vacuna == "")
+            {
+                MessageBox.Show("Completa todos los campos");
+                return;
+            }
+
+            var nueva = new Consulta
+            {
+                Mascota = txtMascota.Text,
+                Veterinario = txtDueno.Text,
+                Estado = txtServicio.Text + " | Vacuna: " + vacuna
+            };
+
+            lista.Add(nueva);
+
+            dgConsultas.ItemsSource = null;
+            dgConsultas.ItemsSource = lista;
+
+            MessageBox.Show("Guardado");
+
+            //limpiar
+            txtMascota.Text = "";
+            txtDueno.Text = "";
+            txtServicio.Text = "";
+            vacuna = "";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -29,9 +63,16 @@ namespace ProyectoVeterinaria.Views
 
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
     }
-}
+
+    public class Consulta
+    {
+        public string Mascota { get; set; }
+        public string Veterinario { get; set; }
+        public string Estado { get; set; }
+    }
+} 

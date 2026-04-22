@@ -5,10 +5,10 @@ namespace ProyectoVeterinaria.CustomControls
 {
     public partial class BindablePasswordBox : UserControl
     {
-        public BindablePasswordBox()
-        {
-            InitializeComponent();
-        }
+        
+        public static readonly DependencyProperty PasswordProperty =
+            DependencyProperty.Register("Password", typeof(string), typeof(BindablePasswordBox),
+                new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnPasswordPropertyChanged));
 
         public string Password
         {
@@ -16,12 +16,28 @@ namespace ProyectoVeterinaria.CustomControls
             set { SetValue(PasswordProperty, value); }
         }
 
-        public static readonly DependencyProperty PasswordProperty =
-            DependencyProperty.Register("Password", typeof(string), typeof(BindablePasswordBox), new PropertyMetadata(string.Empty));
+        public BindablePasswordBox()
+        {
+            InitializeComponent();
+        }
 
+        //Este método se ejecuta cuando Password cambia desde ViewModel
+        private static void OnPasswordPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is BindablePasswordBox passwordBox)
+            {
+                
+                if (passwordBox._passwordBox.Password != (string)e.NewValue)
+                {
+                    passwordBox._passwordBox.Password = (string)e.NewValue;
+                }
+            }
+        }
+
+        //Este método se ejecuta cuando el usuario escribe en la interfaz
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            Password = txtPassword.Password;
+            Password = _passwordBox.Password;
         }
     }
 }

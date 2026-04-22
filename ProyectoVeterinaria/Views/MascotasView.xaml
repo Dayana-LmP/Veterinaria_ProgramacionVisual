@@ -1,14 +1,12 @@
-﻿<Window x:Class="ProyectoVeterinaria.Views.Consultas"
+﻿<Window x:Class="ProyectoVeterinaria.Views.MascotasView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProyectoVeterinaria.Views"
-        mc:Ignorable="d"
-        Title="Consultas" Height="805" Width="800"
+        Title="Mascotas" Height="805" Width="800"
         Background="#F4F7F9"
         FontFamily="Segoe UI">
+
     <Grid>
+
         <!-- COLUMNAS -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
@@ -17,151 +15,21 @@
 
         <!-- MENU IZQUIERDO -->
         <Border Background="#2375B1">
-
             <StackPanel>
 
-                <!-- LOGO -->
                 <TextBlock Text="Huella Soft"
                            FontSize="22"
                            FontWeight="Bold"
                            Foreground="White"
                            Margin="20,20,0,30"/>
 
-                <!-- BOTONES -->
-
-                <Button Content="🏠  Home" Height="45" Foreground="White" BorderThickness="0" Click="Button_Click">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#0644A7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <!--|Boton 2-->
-                <Button Content="📋  Consultas" Height="45" Foreground="White" BorderThickness="0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#0644A7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <!--Boton 3-->
-                <Button Content="🐾  Mascotas" Height="45" Foreground="White" BorderThickness="0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#0644A7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <!--Boton 4-->
-                <Button Content="👤  Dueños" Height="45" Foreground="White" BorderThickness="0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#0644A7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <!--Boton 5-->
-                <Button Content="💉  Vacunas" Height="45" Foreground="White" BorderThickness="0">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#0644A7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <!--Boton 6-->
-                <Button Content="💊  Medicamentos" Height="45" Foreground="White" BorderThickness="0" Click="Button_Click_1">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#0644A7"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <!--Boton 7-->
-                <Button Content="👥  Empleados" Height="45" Foreground="White" BorderThickness="0">
+                <!-- HOME -->
+                <Button x:Name="btnHome"
+                Content="🏠  Home"
+                Height="45"
+                Foreground="White"
+                BorderThickness="0"
+                Click="btnHome_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="Transparent"/>
@@ -183,38 +51,153 @@
                     </Button.Style>
                 </Button>
 
+                <!-- CONSULTAS -->
+                <Button x:Name="btnConsultas"
+                Content="📋  Consultas"
+                Height="45"
+                Foreground="White"
+                BorderThickness="0"
+                Click="btnConsultas_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#0644A7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
 
-                <StackPanel Margin="10,150,10,0">
+                <!-- MASCOTAS -->
+                <Button x:Name="btnMascotas"
+                Content="🐾  Mascotas"
+                Height="45"
+                Foreground="White"
+                BorderThickness="0"
+                Click="btnMascotas_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#0644A7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <!-- DUEÑOS -->
+                <Button x:Name="btnDueno"
+                Content="👤  Dueños"
+                Height="45"
+                Foreground="White"
+                BorderThickness="0"
+                Click="btnDueno_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#0644A7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+               
+                 
+                <!-- MEDICAMENTOS -->
+                <Button x:Name="btnMedicamentos"
+                Content="💊  Medicamentos"
+                Height="45"
+                Foreground="White"
+                BorderThickness="0"
+                Click="btnMedicamentos_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#0644A7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <!-- EMPLEADOS -->
+                <Button x:Name="btnEmpleados"
+                Content="👥  Empleados"
+                Height="45"
+                Foreground="White"
+                BorderThickness="0"
+                Click="btnEmpleados_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#0644A7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
 
 
-                    <Button Content="↪ Salir" Height="45" Foreground="White" BorderThickness="0">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
-                                            <Border Background="{TemplateBinding Background}">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#0644A7"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
 
-                </StackPanel>
 
             </StackPanel>
-
         </Border>
-
 
         <!-- CONTENIDO DERECHO -->
         <Grid Grid.Column="1">
@@ -226,27 +209,22 @@
 
             <!-- TOP BAR -->
             <Border Background="White">
-
                 <Grid>
 
                     <TextBox Width="250"
                              Height="30"
                              Margin="20,0,0,0"
                              VerticalAlignment="Center"
-                             Text="Buscar" TextChanged="TextBox_TextChanged"/>
-
+                             Text="Buscar"/>
 
                     <Ellipse Width="40" Height="40" HorizontalAlignment="Right" Margin="0,0,20,0">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Images/vet.png" Stretch="UniformToFill"/>
+                            <ImageBrush ImageSource="/Images/vet.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
 
-
                 </Grid>
-
             </Border>
-
 
             <!-- CONTENIDO -->
             <ScrollViewer Grid.Row="1">
@@ -254,13 +232,12 @@
                 <StackPanel Margin="40">
 
                     <!-- TITULO -->
-                    <TextBlock Text="Consulta"
+                    <TextBlock Text="Mascotas"
                                FontSize="36"
                                FontWeight="Bold"
                                Margin="0,0,0,20"/>
 
-
-                    <!-- FORM -->
+                    <!-- FORMULARIO -->
                     <Border Background="White"
                             Padding="25"
                             Width="500"
@@ -271,64 +248,75 @@
                         <StackPanel>
 
                             <TextBlock Text="Nombre de la mascota"/>
-                            <TextBox x:Name="txtMascota" Height="30" Margin="0,5,0,15"/>
+                            <TextBox x:Name="txtNombre" Height="30" Margin="0,5,0,15"/>
 
-                            <TextBlock Text="Nombre del dueño"/>
+                            <TextBlock Text="Especie"/>
+                            <TextBox x:Name="txtEspecie" Height="30" Margin="0,5,0,15"/>
+
+                            <TextBlock Text="Raza"/>
+                            <TextBox x:Name="txtRaza" Height="30" Margin="0,5,0,15"/>
+
+                            <TextBlock Text="Edad"/>
+                            <TextBox x:Name="txtEdad" Height="30" Margin="0,5,0,15"/>
+
+                            <TextBlock Text="Dueño"/>
                             <TextBox x:Name="txtDueno" Height="30" Margin="0,5,0,15"/>
-
-                            <TextBlock Text="Servicio a solicitar"/>
-                            <TextBox x:Name="txtServicio" Height="30" Margin="0,5,0,15"/>
-
-                            <TextBlock Text="¿Requiere alguna vacuna?" Margin="0,10,0,10"/>
-
-                            <StackPanel Orientation="Horizontal">
-
-                                <Button Content="SI"
-                                        Width="60"
-                                        Height="30"
-                                        Background="#C6D9F1"
-                                        Margin="0,0,10,0"
-                                        Click="BtnSi_Click"/>
-
-                                <Button Content="NO"
-                                        Width="60"
-                                        Height="30"
-                                        Background="#F4CCCC"
-                                        Click="BtnNo_Click"/>
-
-                            </StackPanel>
 
                         </StackPanel>
 
                     </Border>
 
+                    <!-- BOTONES -->
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,20">
 
-                    <!-- BOTON GUARDAR -->
-                    <Button Content="GUARDAR"
-                            Width="120"
-                            Height="35"
-                            Background="#4A86E8"
-                            Foreground="White"
-                            Margin="0,20,0,20"
-                            Click="Guardar_Click"/>
+                        <Button Content="GUARDAR"
+                                Width="100"
+                                Height="35"
+                                Background="#4A86E8"
+                                Foreground="White"
+                                Margin="0,0,10,0"
+                                Click="Guardar_Click"/>
 
+                        <Button Content="EDITAR"
+                                Width="100"
+                                Height="35"
+                                Background="#6AA84F"
+                                Foreground="White"
+                                Margin="0,0,10,0"
+                                Click="Editar_Click"/>
+
+                        <Button Content="ELIMINAR"
+                                Width="100"
+                                Height="35"
+                                Background="#E06666"
+                                Foreground="White"
+                                Click="Eliminar_Click"/>
+
+                    </StackPanel>
+
+                    <!-- BUSCADOR -->
+                    <TextBox x:Name="txtBuscar"
+                             Width="200"
+                             Height="30"
+                             Margin="0,0,0,10"/>
 
                     <!-- TABLA -->
-                    <DataGrid x:Name="dgConsultas" 
+                    <DataGrid x:Name="dgMascotas"
                               Height="200"
                               AutoGenerateColumns="False">
 
                         <DataGrid.Columns>
 
-                            <DataGridTextColumn Header="Mascota" Binding="{Binding Mascota}" Width="*"/>
-
-                            <DataGridTextColumn Header="Veterinario" Binding="{Binding Veterinario}" Width="*"/>
-
-                            <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="*"/>
+                            <DataGridTextColumn Header="ID Mascota" Binding="{Binding Id}" Width="*"/>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                            <DataGridTextColumn Header="Especie" Binding="{Binding Especie}" Width="*"/>
+                            <DataGridTextColumn Header="Edad" Binding="{Binding Edad}" Width="*"/>
+                            <DataGridTextColumn Header="Dueño" Binding="{Binding Dueno}" Width="*"/>
 
                         </DataGrid.Columns>
 
                     </DataGrid>
+                    
 
                 </StackPanel>
 
